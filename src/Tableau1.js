@@ -18,6 +18,13 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gMid', 'assets/level/ground/g-mid.png');
         this.load.image('gRight', 'assets/level/ground/g-right.png');
         this.load.image('gTree1', 'assets/level/ground/g-tree-1.png');
+        this.load.image('gmushroom1','assets/level/ground/g-mushroom1.png');
+
+        this.load.image('gtree2','assets/level/ground/g-tree-2.png');
+        this.load.image('gpont','assets/level/ground/g-wooden-bridge.png');
+        this.load.image('gstone4','assets/level/ground/g-stone-4.png');
+        this.load.image('gwater', 'assets/level/ground/g-water.png');
+
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
@@ -84,6 +91,16 @@ class Tableau1 extends Phaser.Scene{
         let bg1Terrain3=this.add.image(-300,200, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
 
+
+        /**
+         *ajoutgris
+         */
+        let water=this.add.image(300,200, 'gwater').setOrigin(-0.8,-0.7);
+
+
+
+
+
         //-------------ground (premier plan noir)---------------------------
 
         /**
@@ -98,6 +115,29 @@ class Tableau1 extends Phaser.Scene{
         let tree1=this.add.image(300,350, 'gTree1').setOrigin(0,1);
         tree1.setTintFill(0xFF0000); // pratique pour dbugger
         this.groundContainer.add(tree1);
+        /**
+         * ajout
+         */
+        let mushroom1=this.add.image(300,350, 'gmushroom1').setOrigin(1.5,1)
+
+        let gtree2=this.add.image(300,400, 'gtree2').setOrigin(2,1)
+
+        let pont=this.add.image(300,400,'gpont').setOrigin(-0.4,1.5)
+
+        let stone4=this.add.image(300,100 , 'gstone4').setOrigin(-1.45,-5.1);
+        stone4.flipX=true;
+
+
+
+
+
+
+
+
+
+
+
+
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
