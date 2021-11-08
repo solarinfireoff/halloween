@@ -52,6 +52,8 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('filterblood2', 'assets/level/filters/bloody/frame2.png');
         this.load.image('filterblood3', 'assets/level/filters/bloody/frame3.png');
 
+        //rain
+
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple
         this.load.image('bg-animation-a', 'assets/level/background-2/bg-animation/bg-animation-a.png');
 
