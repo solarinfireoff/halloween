@@ -24,6 +24,19 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gpont','assets/level/ground/g-wooden-bridge.png');
         this.load.image('gstone4','assets/level/ground/g-stone-4.png');
         this.load.image('gwater', 'assets/level/ground/g-water.png');
+        this.load.image('gbox2','assets/level/ground/g-box-2.png');
+        this.load.image('gright','assets/level/ground/g-right.png');
+        this.load.image('gstone5','assets/level/ground/g-stone-4.png');
+        this.load.image('gwat2','assets/level/ground/g-water.png');
+        this.load.image('gtree4','assets/level/ground/g-tree-1.png');
+
+
+
+
+
+        this.load.image('gfellentree1','assets/level/ground/g-fellen-tree-1.png');
+        this.load.image('gmid1','assets/level/ground/g-mid.png');
+
 
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
@@ -31,6 +44,8 @@ class Tableau1 extends Phaser.Scene{
         for(let i=1;i<=5;i++){
             this.load.image('g-grass-'+i, 'assets/level/ground/g-grass-'+i+'.png');
         }
+
+
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
         this.load.image('filterFilm1', 'assets/level/filters/film/frame-1.png');
@@ -95,7 +110,9 @@ class Tableau1 extends Phaser.Scene{
         /**
          *ajoutgris
          */
-        let water=this.add.image(300,200, 'gwater').setOrigin(-0.8,-0.7);
+        let water=this.add.image(30,600, 'gwater').setOrigin(-1,1);
+        let wat2=this.add.image(401,600, 'gwat2').setOrigin(-1,1);
+
 
 
 
@@ -113,7 +130,7 @@ class Tableau1 extends Phaser.Scene{
          * @type {Phaser.GameObjects.Image}
          */
         let tree1=this.add.image(300,350, 'gTree1').setOrigin(0,1);
-        tree1.setTintFill(0xFF0000); // pratique pour dbugger
+
         this.groundContainer.add(tree1);
         /**
          * ajout
@@ -122,11 +139,31 @@ class Tableau1 extends Phaser.Scene{
 
         let gtree2=this.add.image(300,400, 'gtree2').setOrigin(2,1)
 
-        let pont=this.add.image(300,400,'gpont').setOrigin(-0.4,1.5)
+        let pont=this.add.image(300,400,'gpont').setOrigin(-0.44,1.3)
 
         let stone4=this.add.image(300,100 , 'gstone4').setOrigin(-1.45,-5.1);
-        stone4.flipX=true;
+        stone4.flipX=true ;
 
+        let right=this.add.image(300,500, 'gright').setOrigin(-3.5,0.4);
+        right.flipX=true;
+
+        let stone5=this.add.image(300,500,'gstone5').setOrigin(-5.8,4.2);
+
+        let tree2=this.add.image(300,450,'gtree4').setOrigin(-6.1,1);
+        tree2.flipX=true
+        tree2.angle=-5;
+
+        /**
+         * ajout2
+         */
+        let mid1=this.add.image(190,731,'gmid1').setOrigin(-5,1,6);
+
+
+
+        /**ajout2
+         *
+         */
+        let fellentree1=this.add.image(300,350,'gfellentree1').setOrigin(-4.5,5);
 
 
 
@@ -217,10 +254,10 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
-                    me.speed=1;
+                    me.speed=10;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=-1;
+                    me.speed=-10;
                     break;
             }
         });
