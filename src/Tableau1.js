@@ -213,7 +213,7 @@ class Tableau1 extends Phaser.Scene{
         this.filterblood = this.add.sprite(0, 0, 'filterblood1').setOrigin(0,0);
         //animation de 3 images
         this.anims.create({
-            key: 'film',
+            key: 'bloody',
             frames: [
                 {key:'filterblood1'},
                 {key:'filterblood1'},
@@ -222,7 +222,7 @@ class Tableau1 extends Phaser.Scene{
             frameRate: 16,
             repeat: -1
         });
-        this.filterFilm.play('film');
+        this.filterblood.play('film');
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
@@ -281,7 +281,7 @@ class Tableau1 extends Phaser.Scene{
         this.cameras.main.scrollX+=this.speed; // on aurait pu écrire : this.cameras.main.scrollX= this.cameras.main.scrollX + this.speed;
 
         //petit effet de vibrance sur le filtre film au tout premier plan
-        this.filterFilm.setAlpha(Phaser.Math.Between(95,100)/100)
+        this.filterblood.setAlpha(Phaser.Math.Between(95,100)/100)
     }
 
 
