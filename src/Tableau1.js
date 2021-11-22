@@ -11,6 +11,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('bg2-terrain-2', 'assets/level/background-2/bg2-terrain-2.png');
         this.load.image('bg2-tree-2', 'assets/level/background-2/bg2-tree-2.png');
 
+
         //bg 1 (gris légèrement flou)
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
 
@@ -20,7 +21,7 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gTree1', 'assets/level/ground/g-tree-1.png');
         this.load.image('gmushroom1','assets/level/ground/g-mushroom1.png');
 
-        this.load.image('gtree2','assets/level/ground/g-tree-2.png');
+        this.load.image('gtree2','assets/level/ground/g-tree-2.png  ');
         this.load.image('gpont','assets/level/ground/g-wooden-bridge.png');
         this.load.image('gstone4','assets/level/ground/g-stone-4.png');
         this.load.image('gwater', 'assets/level/ground/g-water.png');
@@ -29,6 +30,14 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gstone5','assets/level/ground/g-stone-4.png');
         this.load.image('gwat2','assets/level/ground/g-water.png');
         this.load.image('gtree4','assets/level/ground/g-tree-1.png');
+        this.load.image('gvinea','assets/level/ground/g-vine-a.png');
+        this.load.image('gvineb','assets/level/ground/g-vine-b.png');
+
+
+
+        for(let i=1;i<=7;i++) {
+            this.load.image('trap0' + i, 'assets/Characters/trap 2/open/trap-0.png' + i + '.png');
+        }
 
 
 
@@ -48,9 +57,9 @@ class Tableau1 extends Phaser.Scene{
 
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent
-        this.load.image('filterblood1', 'assets/level/filters/bloody/frame1.png');
-        this.load.image('filterblood2', 'assets/level/filters/bloody/frame2.png');
-        this.load.image('filterblood3', 'assets/level/filters/bloody/frame3.png');
+        for(let i=1;i<=3;i++){
+            this.load.image('filterblood'+i, 'assets/level/filters/bloody/frame'+i+'.png');
+        }
 
         //rain
 
@@ -122,6 +131,14 @@ class Tableau1 extends Phaser.Scene{
 
         //-------------ground (premier plan noir)---------------------------
 
+
+
+
+
+
+
+
+
         /**
          * contient tous les éléments du premier plan (noir)
          * @type {Phaser.GameObjects.Container}
@@ -155,6 +172,9 @@ class Tableau1 extends Phaser.Scene{
         tree2.flipX=true
         tree2.angle=-5;
 
+
+        let vinea=this.add.image(300,500, 'gvinea').setOrigin(-6,10);
+
         /**
          * ajout2
          */
@@ -166,6 +186,10 @@ class Tableau1 extends Phaser.Scene{
          *
          */
         let fellentree1=this.add.image(300,350,'gfellentree1').setOrigin(-4.5,5);
+
+
+
+        let trap1=this.add.image(300,350,'trap0').setOrigin(-5.5,5);
 
 
 
@@ -259,7 +283,7 @@ class Tableau1 extends Phaser.Scene{
                     me.speed=10;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=-10;
+                    me.speed=10;
                     break;
             }
         });
@@ -273,6 +297,7 @@ class Tableau1 extends Phaser.Scene{
                     break;
             }
         });
+        this.input.keyboard.on('')
     }
 
     /**
