@@ -35,8 +35,8 @@ class Tableau1 extends Phaser.Scene{
 
 
 
-        for(let i=1;i<=7;i++) {
-            this.load.image('trap0' + i, 'assets/Characters/trap 2/open/trap-0.png' + i + '.png');
+        for(let i=1;i<=5;i++) {
+            this.load.image('trappp' +i, 'assets/characters/trap2/open/trappp-' +i+ '.png');
         }
 
 
@@ -236,6 +236,24 @@ class Tableau1 extends Phaser.Scene{
          * filtre type film au premier plan
          * @type {Phaser.GameObjects.Sprite}
          */
+
+        this.trappp = this.add.sprite(0,0, 'trappp1').setOrigin(0,0);
+        console.log(frames)
+        this.anims.create({
+            key: 'open',
+            frames: this.getFrames("trappp1",10),
+
+
+
+            frameRate: 12,
+            repeat: -1
+
+            })
+        this.trappp.play('trappp1');
+
+
+
+
         this.filterblood = this.add.sprite(0, 0, 'filterblood1').setOrigin(0,0);
         //animation de 3 images
         this.anims.create({
@@ -248,7 +266,7 @@ class Tableau1 extends Phaser.Scene{
             frameRate: 16,
             repeat: -1
         });
-        this.filterblood.play('film');
+        this.filterblood.play('open');
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
