@@ -241,10 +241,14 @@ class Tableau1 extends Phaser.Scene{
         console.log(frames)
         this.anims.create({
             key: 'open',
-            frames: this.getFrames("trappp",5),
+            frames: [//this.getFrames("trappp",5),
+                {key:'trapp1'},
+                {key:'trapp1'},
+                {key:'trapp1'},
 
+            ],
             frameRate: 12,
-            repeat: -10
+            repeat: -1
 
             })
         this.trappp.play('open');
