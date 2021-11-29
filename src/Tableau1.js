@@ -189,7 +189,7 @@ class Tableau1 extends Phaser.Scene{
 
 
 
-        let trap1=this.add.image(300,350,'trap0').setOrigin(-5.5,5);
+        // let trap1=this.add.image(300,350,'trap0').setOrigin(-5.5,5);
 
 
 
@@ -241,15 +241,15 @@ class Tableau1 extends Phaser.Scene{
         console.log(frames)
         this.anims.create({
             key: 'open',
-            frames: this.getFrames("trappp1",10),
-
-
+            frames: this.getFrames("trappp",5),
 
             frameRate: 12,
-            repeat: -1
+            repeat: -10
 
             })
-        this.trappp.play('trappp1');
+        this.trappp.play('open');
+
+
 
 
 
@@ -260,13 +260,14 @@ class Tableau1 extends Phaser.Scene{
             key: 'bloody',
             frames: [
                 {key:'filterblood1'},
-                {key:'filterblood1'},
-                {key:'filterblood1'},
+                {key:'filterblood2'},
+                {key:'filterblood3'},
             ],
             frameRate: 16,
-            repeat: -1
+            loop: -+1
+
         });
-        this.filterblood.play('open');
+
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
 
@@ -279,7 +280,7 @@ class Tableau1 extends Phaser.Scene{
         //initialise ce qui se passe avec le clavier
         this.initKeyboard();
         // Définit l'espace de déplacement de la caméra
-        this.cameras.main.setBounds(0, 0, 2000, 540);
+        this.cameras.main.setBounds(0, 0, 2000);
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimationA.scrollFactorX=0;
         this.filterblood.scrollFactorX=0;
@@ -287,6 +288,18 @@ class Tableau1 extends Phaser.Scene{
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
     }
+    getFrames(prefix,length) {
+        let frames = [];
+        for (let i = 1; i <= length; i++) {
+            frames.push({key: prefix + i});
+        }
+        return frames;
+    }
+
+
+
+
+
     /**
      * Définit ce qui se passe quand on appuie ou relache une touche du clavier
      * ALGO : ceci est une fonction ou méthode
@@ -298,10 +311,16 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
-                    me.speed=10;
+                    me.speed=4;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=10;
+                    me.speed=-4;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.UP:
+                    me.trap1close.play('trap1closeanim');
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.DOWN:
+                    me.trap1close.play('trap1openanim');
                     break;
             }
         });
@@ -312,10 +331,10 @@ class Tableau1 extends Phaser.Scene{
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
                     me.speed=0;
+
                     break;
             }
         });
-        this.input.keyboard.on('')
     }
 
     /**
